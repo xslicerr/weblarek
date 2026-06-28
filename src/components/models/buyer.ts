@@ -1,11 +1,11 @@
 import { TPayment } from "../../types"
-import { IBuyer } from "../../types"
+import { IBuyer, IErrors } from "../../types"
 
 export class Buyer {
-  payment: TPayment = ''
-  address: string = ''
-  email: string = ''
-  phone: string = ''
+  protected payment: TPayment | '' = ''
+  protected address: string = ''
+  protected email: string = ''
+  protected phone: string = ''
 
   setPayment(payment: TPayment): void {
     this.payment = payment;
@@ -39,8 +39,8 @@ export class Buyer {
     this.phone = '';
   }
 
-  validate(): { payment?: string, email?: string, phone?: string, address?: string} {
-    const errors: { payment?: string, email?: string, phone?: string, address?: string} = {}
+  validate(): IErrors {
+    const errors: IErrors = {}
     if (this.payment === '') {
       errors.payment = 'Не выбран способ оплаты';
     }

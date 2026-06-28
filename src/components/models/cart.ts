@@ -1,7 +1,7 @@
 import { IProduct } from "../../types";
 
 export class Cart {
-  items: IProduct[] = []
+  protected items: IProduct[] = []
 
   addItem(product: IProduct): void {
     this.items.push(product);
